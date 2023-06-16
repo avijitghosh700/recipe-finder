@@ -1,0 +1,16 @@
+@import '/src/scss/var';
+
+.wizard-login {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+
+  &__module {
+    padding: 20px;
+    border: 1px solid $lightgray;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}

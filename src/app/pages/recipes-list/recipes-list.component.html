@@ -1,0 +1,59 @@
+<main class="main recipes">
+  <section class="recipes__searchArea py-4">
+    <div class="container">
+      <form [formGroup]="searchForm" class="recipes__searchForm rounded p-4">
+        <mat-form-field
+          appearance="outline"
+          class="w-100"
+          subscriptSizing="dynamic"
+        >
+          <mat-label>Search recipes</mat-label>
+          <input
+            type="text"
+            formControlName="search"
+            matInput
+            placeholder="E.g. Pizza, burger, etc."
+            #search
+          />
+          <button
+            *ngIf="search.value"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="clearField()"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+    </div>
+  </section>
+
+  <section class="recipes__resultArea py-4">
+    <div class="container">
+      <div class="row gy-4">
+        <ng-container *ngIf="isLoading(); then loader"> </ng-container>
+        
+        <ng-container *ngIf="recipes$ | async as recipes">
+          <div class="col-12 col-sm-6 col-md-4" *ngFor="let recipe of recipes">
+            <app-recipe-card [data]="recipe"></app-recipe-card>
+          </div>
+
+          <ng-container
+            *ngIf="!isLoading() && !(recipes && recipes.length); then noResult"
+          ></ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+</main>
+
+<ng-template #loader>
+  <div class="spinner-container absolute">
+    <mat-spinner color="primary"></mat-spinner>
+  </div>
+</ng-template>
+
+<ng-template #noResult>
+  <div class="col-12 text-center">No results found</div>
+</ng-template>

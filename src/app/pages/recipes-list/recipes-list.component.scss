@@ -1,0 +1,27 @@
+@import "src/scss/var";
+
+.recipes {
+  &__searchArea {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    background: {
+      image: url('/assets/images/estudio-bloom-Sk8eWqGLG18-unsplash.jpg');
+      repeat: no-repeat;
+      size: cover;
+      position: center;
+    };
+  }
+
+  &__resultArea {
+    position: relative;
+    min-height: calc(100vh - 365px);
+  }
+
+  &__searchForm {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+  }
+}

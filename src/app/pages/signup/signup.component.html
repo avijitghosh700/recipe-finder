@@ -1,0 +1,91 @@
+<main class="main">
+  <section class="wizard-signup">
+    <div class="container">
+      <div class="wizard-signup__module bg-white shadow-sm">
+        <div class="wizard-signup__heading mb-3">
+          <h1 class="fw-medium text-primary m-0">Signup</h1>
+        </div>
+
+        <form class="credential" [formGroup]="registerForm" (submit)="signup()">
+          <div class="form-group mb-3">
+            <label for="" class="credential__label mb-2">Email</label>
+            <input
+              type="email"
+              name="email"
+              formControlName="email"
+              class="form-control credential__input"
+              [class.is-invalid]="formData['email'].errors && submitted"
+            />
+
+            <div
+              class="invalid-feedback d-flex"
+              *ngIf="formData['email'].errors && submitted"
+            >
+              <span *ngIf="formData['email'].errors['required']"
+                >Please enter email</span
+              >
+              <span
+                *ngIf="
+                  !formData['email'].errors['required'] &&
+                  formData['email'].errors['email']
+                "
+              >
+                Please enter a valid email
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="" class="credential__label mb-2">Password</label>
+            <input
+              type="password"
+              name="password"
+              formControlName="password"
+              class="form-control credential__input"
+              [class.is-invalid]="formData['password'].errors && submitted"
+            />
+
+            <div
+              class="invalid-feedback d-flex"
+              *ngIf="formData['password'].errors && submitted"
+            >
+              <span *ngIf="formData['password'].errors['required']"
+                >Please enter password</span
+              >
+              <span
+                *ngIf="
+                  !formData['password'].errors['required'] &&
+                  formData['password'].errors['minlength']
+                "
+              >
+                Please enter a valid password
+              </span>
+            </div>
+          </div>
+
+          <div class="btn-group d-flex justify-content-between gap-3 mt-4">
+            <button
+              class="mr-2"
+              mat-button
+              color="primary"
+              type="button"
+              routerLink="/"
+            >
+              Already have an account?
+            </button>
+            <button
+              class="ml-auto"
+              mat-raised-button
+              color="primary"
+              type="submit"
+              [disabled]="registerLoading"
+            >
+              {{ registerLoading ? null : 'Sign Up'}}
+              <mat-spinner [diameter]="20" *ngIf="registerLoading"></mat-spinner>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>

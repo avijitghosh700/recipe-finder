@@ -1,0 +1,18 @@
+<mat-card class="recipe-card">
+  <ng-container *ngIf="data">
+    <mat-card-header class="recipe-card__header p-3">
+      <mat-card-title>{{ data.name }}</mat-card-title>
+    </mat-card-header>
+
+    <img
+      class="recipe-card__media"
+      mat-card-image
+      [src]="data.thumbnail_url"
+      [alt]="data.name"
+    />
+
+    <mat-card-content class="recipe-card__content p-3" *ngIf="data.description">
+      <p>{{ data.description }}</p>
+    </mat-card-content>
+  </ng-container>
+</mat-card>
