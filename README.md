@@ -4,7 +4,7 @@ Run `npm i` or `yarn` to setup the application.
 
 Firebase is used for authentication.
 
-# Please note that the RapidAPI used to fetch the recipes is limited to 500 requests per month total.
+### Please note that the RapidAPI used to fetch the recipes is limited to 500 requests per month in total.
 
 ____________________________________________
 
