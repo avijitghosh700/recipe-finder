@@ -1,6 +1,6 @@
 # RecipeFinder
 
-Run `npm i` or `yarn` to setup the application.
+Run `npm i` or `yarn` to set up the application.
 
 Firebase is used for authentication.
 
